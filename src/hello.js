@@ -1271,6 +1271,7 @@ hello.utils.extend(hello.utils, {
 		// Firefox  decodes URL fragments when calling location.hash.
 		//  - This is bad if the value contains break points which are escaped
 		//  - Hence the url must be encoded twice as it contains breakpoints.
+		const isFirefox = navigator.userAgent.indexOf('Firefox');
 		if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1) {
 			url = redirectUri + '#oauth_redirect=' + encodeURIComponent(encodeURIComponent(url));
 		}
@@ -1281,7 +1282,7 @@ hello.utils.extend(hello.utils, {
 			optionsArray.join(',')
 		);
 
-		if (popup && popup.focus) {
+		if (popup && popup.focus && !isFirefox) {
 			popup.focus();
 		}
 

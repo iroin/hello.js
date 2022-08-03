@@ -1,4 +1,4 @@
-/*! hellojs v1.19.5 - (c) 2012-2021 Andrew Dodson - MIT https://adodson.com/hello.js/LICENSE */
+/*! hellojs v1.19.5 - (c) 2012-2022 Andrew Dodson - MIT https://adodson.com/hello.js/LICENSE */
 // ES5 Object.create
 if (!Object.create) {
 
@@ -3313,7 +3313,7 @@ if (typeof chrome === 'object' && typeof chrome.identity === 'object' && chrome.
 (function(hello) {
 	// For APIs, once a version is no longer usable, any calls made to it will be defaulted to the next oldest usable version.
 	// So we explicitly state it.
-	var version = 'v2.9';
+	var version = 'v7.0';
 
 	hello.init({
 
