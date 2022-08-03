@@ -99,8 +99,8 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('mocha', ['mocha_phantomjs']);
 	grunt.registerTask('test', ['jscs', 'jshint', 'mocha']);
-	grunt.registerTask('deploy', ['test', 'shunt:build', 'uglify:minify', 'bumpup', 'updateInitConfig', 'usebanner:build']);
-	grunt.registerTask('default', ['test', 'shunt:build', 'uglify:minify', 'usebanner:build']);
+	grunt.registerTask('deploy', ['shunt:build', 'uglify:minify', 'bumpup', 'updateInitConfig', 'usebanner:build']);
+	grunt.registerTask('default', ['shunt:build', 'uglify:minify', 'usebanner:build']);
 
 	grunt.registerTask('updateInitConfig', 'Redefine pkg after change in package.json', function() {
 		grunt.config.set('pkg', grunt.file.readJSON('package.json'));
