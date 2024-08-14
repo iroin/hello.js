@@ -1,4 +1,4 @@
-/*! hellojs v1.19.7 - (c) 2012-2022 Andrew Dodson - MIT https://adodson.com/hello.js/LICENSE */
+/*! hellojs v1.19.8 - (c) 2012-2024 Andrew Dodson - MIT https://adodson.com/hello.js/LICENSE */
 // ES5 Object.create
 if (!Object.create) {
 
@@ -568,18 +568,21 @@ hello.utils.extend(hello, {
 			var timer = setInterval(function() {
 				if (!popup || popup.closed) {
 					clearInterval(timer);
-					if (!promise.state) {
 
-						var response = error('cancelled', 'Login has been cancelled');
+					setTimeout(() => {
+						if (!promise.state) {
 
-						if (!popup) {
-							response = error('blocked', 'Popup was blocked');
+							var response = error('cancelled', 'Login has been cancelled');
+
+							if (!popup) {
+								response = error('blocked', 'Popup was blocked');
+							}
+
+							response.network = p.network;
+
+							promise.reject(response);
 						}
-
-						response.network = p.network;
-
-						promise.reject(response);
-					}
+					}, 3000);
 				}
 			}, 100);
 		}
